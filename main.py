@@ -1,3 +1,29 @@
+class Empresa:
+    def __init__(self, nome, cnpj, mfuncionarios, mlucro):
+        self.nome = nome
+        self.cnpj = cnpj
+        self.mfuncionarios = mfuncionarios
+        self.mlucro = mlucro
+
+class Prefeitura:
+    def __init__(self, cidade, prefeito, empresas, timpostos = 0):
+        self.cidade = cidade
+        self.prefeito = prefeito
+        self.empresas = empresas
+        self.timpostos = timpostos
+
+    def TotalImpostos(self):
+        for empresa in self.empresas:
+            self.timpostos += empresa.mlucro*0.016
+        return self.timpostos
+
+class Prefeito:
+    def __init__(self, nome, cpf, formacao):
+        self.nome = nome
+        self.cpf = cpf
+        self.formacao = formacao
+
+
 empresas = []
 
 while True:
