@@ -23,6 +23,7 @@ class Prefeito:
         self.cpf = cpf
         self.formacao = formacao
 
+import os
 
 empresas = []
 
@@ -31,6 +32,7 @@ while True:
     if controle == 'n':
         break
     elif controle == 's':
+        os.system('cls' if os.name == 'nt' else 'clear')
         nome = input('Nome da empresa: ')
         cnpj = input('CNPJ (apenas dígitos): ')
         mfuncionarios = input('Quantidade de funcionários: ')
@@ -38,17 +40,21 @@ while True:
         empresa = Empresa(nome, cnpj, mfuncionarios, mlucro)
         empresas.append(empresa)
     else:
+        os.system('cls' if os.name == 'nt' else 'clear')
         print('Comando inválido!')
         continue
 
+os.system('cls' if os.name == 'nt' else 'clear')
 print('Informações sobre o prefeito:')
 nome = input('Nome do prefeito: ')
 cpf = input('CPF (apenas números): ')
 formacao = input('Formação: ')
 prefeito = Prefeito(nome, cpf, formacao)
 
+os.system('cls' if os.name == 'nt' else 'clear')
 print('Informações sobre a prefeitura:')
 cidade = input('Cidade: ')
 prefeitura = Prefeitura(cidade, prefeito.nome, empresas)
 
+os.system('cls' if os.name == 'nt' else 'clear')
 print(f'A prefeitura da cidade {prefeitura.cidade}, que tem {prefeito.nome} como prefeito(a), teve uma arrecadação total de R${prefeitura.TotalImpostos():.2f}')
